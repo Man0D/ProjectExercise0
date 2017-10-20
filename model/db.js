@@ -1,6 +1,9 @@
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/ProjectExercise0";
-MongoClient.connect(url);
+//var MongoClient = require('mongodb').MongoClient;
+//var url = "mongodb://localhost:27017/ProjectExercise0";
+//MongoClient.connect(url);
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/ProjectExercise0');
 
 /*
 MongoClient.connect(url, function(err, db) {
