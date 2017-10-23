@@ -6,21 +6,29 @@ var mongoose = require('mongoose');
 router.get('/', function(req, res, next) {
 
   //TODO: send data about contact list
-  mongoose.model('contacts').find({},'_id firstName lastName company', function(err, contacts){
+ mongoose.model('contacts').find({},'_id firstName lastName company', function(err, contacts){
       if(err) throw err;
-      res.send(contacts);
-      contacts.forEach(function(contact){
-          console.log('%s %s %s', contact.firstName, contact.lastName, contact.company);
-      })
-  });
-  ///////
+      //res.send(contacts);
 
-  //res.render('index', { title: 'Express' });
+     var tab = new Array();
+     var ids = new Array();
+
+     contacts.forEach(function(contact,i){
+         tab[i] = contact.firstName +" - "+ contact.lastName +" - "+ contact.company;
+         ids[i] = contact._id
+          //console.log('%s %s %s', contact.firstName, contact.lastName, contact.company);
+      })
+
+     res.render('index', { contacts: tab , identities: ids});
+
+ });
+
 
 });
 
 router.post('/', function(req, ers, next){
-  res.send();
+
+    res.send();
 })
 
 module.exports = router;
