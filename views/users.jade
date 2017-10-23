@@ -2,23 +2,29 @@ extends layout
 
 block content
     h1 Contact Informations
-    button 
+    a(href="/")
+        button Back
+    hr
+
     form
         div
             span Id:
-            input(type="text" placeholder=Id disabled="yes")
+            input(type="text" value=Id disabled="yes")
         div
             span firstname:
-            input(type="text" placeholder=Id disabled="yes")
+            input(type="text" value=fname disabled="yes")
         div
             span lastname:
-            input(type="text" placeholder=Id disabled="yes")
+            input(type="text" value=lname disabled="yes")
         div
             span birth date:
-            input(type="text" placeholder=Id disabled="yes")
+            input(type="text" value=bday disabled="yes")
         div
             span company:
-            input(type="text" placeholder=Id disabled="yes")
+            input(type="text" value=company disabled="yes")
+        div
+            span emails:
+            input(type="text" value=emails disabled="yes")
 
-
+    hr
     button Edit the contact
