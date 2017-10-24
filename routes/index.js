@@ -26,8 +26,27 @@ router.get('/', function(req, res, next) {
 
 });
 
-router.post('/', function(req, ers, next){
-
+router.post('/new', function(req, res, next){
+    mongoose.model('contacts').insert({
+        firstName: String,
+        lastName: String,
+        birthDate: Date,
+        company: String,
+        emails: [{
+            email: String,
+            type: String
+        }],
+        addresses: [{
+            streetNb: Number,
+            streetType: String,
+            street: String,
+            city:String,
+            state: String,
+            zipCode: Number,
+            country: String,
+            type: String
+        }]
+    })
     res.send();
 })
 

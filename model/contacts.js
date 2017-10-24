@@ -4,7 +4,10 @@ var Schema = new mongoose.Schema({
     lastName: String,
     birthDate: Date,
     company: String,
-    emails: [{ email: String, type: String }],
+    emails: [{
+        email: String,
+        type: String
+    }],
     addresses: [{
         streetNb: Number,
         streetType: String,

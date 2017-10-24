@@ -1,4 +1,6 @@
 extends layout
+block head
+    script(src="/javascripts/user.js")
 
 block content
     h1 Contact Informations
@@ -9,22 +11,23 @@ block content
     form
         div
             span Id:
-            input(type="text" value=Id disabled="yes")
+            input(class="input" type="text" value=Id disabled="yes")
         div
             span firstname:
-            input(type="text" value=fname disabled="yes")
+            input(class="input" type="text" value=fname disabled="yes")
         div
             span lastname:
-            input(type="text" value=lname disabled="yes")
+            input(class="input" type="text" value=lname disabled="yes")
         div
             span birth date:
-            input(type="text" value=bday disabled="yes")
+            input(class="input" type="text" value=bday disabled="yes")
         div
             span company:
-            input(type="text" value=company disabled="yes")
+            input(class="input" type="text" value=company disabled="yes")
         div
             span emails:
-            input(type="text" value=emails disabled="yes")
+            input(class="input" type="text" value=emails disabled="yes")
 
     hr
-    button Edit the contact
+    button(id="edit") Edit the contact
+    button(id="save" disabled) Save changes
