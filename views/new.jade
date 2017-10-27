@@ -1,0 +1,41 @@
+extends layout
+block head
+
+
+block content
+    h1 Contact Informations
+    a(href="/")
+        button Back
+    hr
+
+    form( method="post" )
+        div
+            label firstname:
+            input(class="input" type="text" name="firstName" required)
+        div
+            label lastname:
+            input(class="input" type="text" name="lastName" required)
+        div
+            label birth date:
+            input(class="input" type="date" name="birthDate" )
+        div
+            label company:
+            input(class="input" type="text" name="company" required)
+        div(id="emails")
+            label emails:
+            input(class="input" type="text" name="email1" )
+            select( name="typeEmail" )
+                option( value="PRO" ) PRO
+                option( value="PERSONNAL" ) PERSONNAL
+            button(id="addEmail" type="button") +
+        div
+            label addresses:
+            input(class="input" type="text" name="addresses" )
+            select( name="type" )
+                option( value="PRO" ) PRO
+                option( value="PERSONNAL" ) PERSONNAL
+
+
+        button(type="submit" id="save" ) Save contact
+
+    hr

@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
+var mongo = require('../model/contacts')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
   //TODO: send data about contact list
- mongoose.model('contacts').find({},'_id firstName lastName company', function(err, contacts){
+    mongo.find({},'_id firstName lastName company', function(err, contacts){
       if(err) throw err;
       //res.send(contacts);
 
@@ -26,28 +26,18 @@ router.get('/', function(req, res, next) {
 
 });
 
+router.get('/new', function(req, res, next){
+   res.render('new');
+});
+
 router.post('/new', function(req, res, next){
-    mongoose.model('contacts').insert({
-        firstName: String,
-        lastName: String,
-        birthDate: Date,
-        company: String,
-        emails: [{
-            email: String,
-            type: String
-        }],
-        addresses: [{
-            streetNb: Number,
-            streetType: String,
-            street: String,
-            city:String,
-            state: String,
-            zipCode: Number,
-            country: String,
-            type: String
-        }]
-    })
-    res.send();
+
+    var contact = new mongo(req.body);
+    contact.save( function(err,createdObject){
+        if(err) throw err;
+        res.status(200).send(createdObject);
+    });
+    //res.send();
 })
 
 module.exports = router;
