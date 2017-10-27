@@ -25,8 +25,21 @@ addEmailField  = function(){
     input.setAttribute('name','email2');
     input.setAttribute('class','input');
 
+    var select = document.createElement('select');
+    var option1 = document.createElement('option');
+    var option2 = document.createElement('option');
+    option1.setAttribute('value','PRO');
+    option2.setAttribute('value','PERSONNAL');
+    option1.appendChild(document.createTextNode('PRO'));
+    option2.appendChild(document.createTextNode('PERSONNAL'));
+    select.appendChild(option1);
+    select.appendChild(option2);
+
     document.getElementById("emails").appendChild(document.createElement('br'));
+    document.getElementById("emails").appendChild(document.createElement('label'));
     document.getElementById("emails").appendChild(input);
+    document.getElementById("emails").appendChild(select);
+
 
 
 
