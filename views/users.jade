@@ -8,26 +8,38 @@ block content
         button Back
     hr
 
-    form
+    form( method="post" )
         div
-            span Id:
-            input(class="input" type="text" value=Id disabled="yes")
+            label Id:
+            input(type="text" value=Id disabled="yes")
         div
-            span firstname:
-            input(class="input" type="text" value=fname disabled="yes")
+            label firstname:
+            input(class="input" type="text" value=fname name="firstName" disabled="yes")
         div
-            span lastname:
-            input(class="input" type="text" value=lname disabled="yes")
+            label lastname:
+            input(class="input" type="text" value=lname name="lastName" disabled="yes")
         div
-            span birth date:
-            input(class="input" type="text" value=bday disabled="yes")
+            label birth date:
+            input(class="input" type="text" value=bday name="birthDate" disabled="yes")
         div
-            span company:
-            input(class="input" type="text" value=company disabled="yes")
+            label company:
+            input(class="input" type="text" value=company name="company" disabled="yes")
+        div(id="emails")
+            label emails:
+            input(class="input" type="text" value=emails name="email1" disabled="yes")
+            select( name="typeEmail" )
+                option( value="PRO" ) PRO
+                option( value="PERSONNAL" ) PERSONNAL
+            button(id="addEmail" type="button") +
         div
-            span emails:
-            input(class="input" type="text" value=emails disabled="yes")
+            label addresses:
+            input(class="input" type="text" value=addresses name="addresses" disabled="yes")
+            select( name="type" )
+                option( value="PRO" ) PRO
+                option( value="PERSONNAL" ) PERSONNAL
+
+
+        button(type="submit" id="save" disabled) Save changes
 
     hr
     button(id="edit") Edit the contact
-    button(id="save" disabled) Save changes

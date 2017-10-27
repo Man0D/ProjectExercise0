@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+
 var Schema = new mongoose.Schema({
     firstName: String,
     lastName: String,
@@ -6,18 +7,26 @@ var Schema = new mongoose.Schema({
     company: String,
     emails: [{
         email: String,
-        type: String
+        type: {
+            type: String,
+            enum: ['PRO', 'PERSONNAL']
+        }
     }],
     addresses: [{
         streetNb: Number,
         streetType: String,
         street: String,
-        city:String,
+        city: String,
         state: String,
         zipCode: Number,
         country: String,
-        type: String
+        type: {
+            type: String,
+            enum: ['PRO', 'PERSONNAL']
+        }
     }]
 });
 
-mongoose.model('contacts', Schema);
+var Contact = mongoose.model('contacts', Schema);
+
+module.exports = Contact;
