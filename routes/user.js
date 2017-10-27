@@ -16,12 +16,12 @@ router.get('/:id', function(req, res, next) {
 
             res.render('users', {
                 Id: req.params.id ,
-                fname: contact.firstName ,
-                lname: contact.lastName,
-                bday: contact.birthDate,
-                company: contact.company,
-                emails: contact.emails[0].email,
-                typeEmail: contact.emails[0].type,
+                fname: d(contact.firstName) ,
+                lname: d(contact.lastName),
+                bday: d(contact.birthDate),
+                company: d(contact.company),
+                emails: d(contact.emails[0].email),
+                typeEmail: d(contact.emails[0].type),
                 addresses: formatAddress(contact.addresses[0])
             } );
         }
@@ -69,4 +69,11 @@ module.exports = router;
 function formatAddress(c){
     var address = c.streetNb + ' ' + c.streetType + ' ' + c.street + ' - ' + c.city + ' (' + c.state + ') ' + c.zipCode + ' ' + c.country;
     return address
+}
+
+function d(e){
+    if(e != undefined)
+        return e;
+    else
+        return '';
 }

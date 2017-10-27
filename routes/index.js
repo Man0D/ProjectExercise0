@@ -31,13 +31,25 @@ router.get('/new', function(req, res, next){
 });
 
 router.post('/new', function(req, res, next){
-
+    console.log(req.body);
     var contact = new mongo(req.body);
     contact.save( function(err,createdObject){
         if(err) throw err;
         res.status(200).send(createdObject);
     });
     //res.send();
-})
+});
+
+router.get('/delete/:id', function(req, res, next){
+    mongo.findByIdAndRemove(req.params.id, function(err, contact) {
+        // We'll create a simple object to send back with a message and the id of the document that was removed
+        // You can really do this however you want, though.
+        var response = {
+            message: "Contact successfully deleted",
+            id: contact._id
+        };
+        res.status(200).send(response);
+    });
+});
 
 module.exports = router;

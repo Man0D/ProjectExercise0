@@ -22,18 +22,46 @@ block content
             label company:
             input(class="input" type="text" name="company" required)
         div(id="emails")
-            label emails:
-            input(class="input" type="text" name="email1" )
-            select( name="typeEmail" )
+            label email(s):
+            input(class="input" type="email" name="emails.email" )
+            select( name="emails.type" )
                 option( value="PRO" ) PRO
                 option( value="PERSONNAL" ) PERSONNAL
             button(id="addEmail" type="button") +
         div
-            label addresses:
-            input(class="input" type="text" name="addresses" )
-            select( name="type" )
-                option( value="PRO" ) PRO
-                option( value="PERSONNAL" ) PERSONNAL
+            label addresse(s):
+            div(id="addressDiv")
+                div(class="addressBox")
+                    label Street number:
+                    input(class="address" type="number" name="streetNb" )
+                div(class="addressBox")
+                    label Street type:
+                    select( name="streetType" )
+                        option( value="ROAD" ) Road
+                        option( value="AVENUE" ) Avenue
+                        option( value="DEAD END" ) Dead end
+                div(class="addressBox")
+                    label Street name:
+                    input(class="address" type="text" name="street" )
+                br
+                div(class="addressBox")
+                    label City:
+                    input(class="address" type="text" name="city" )
+                div(class="addressBox")
+                    label State:
+                    input(class="address" type="text" name="state" )
+                div(class="addressBox")
+                    label Zip code:
+                    input(class="address" type="number" name="zipCode" )
+                br
+                div(class="addressBox")
+                    label Country:
+                    input(class="address" type="text" name="country" )
+                div(class="addressBox")
+                    label Type:
+                    select( name="type" )
+                        option( value="PRO" ) PRO
+                        option( value="PERSONNAL" ) PERSONNAL
 
 
         button(type="submit" id="save" ) Save contact

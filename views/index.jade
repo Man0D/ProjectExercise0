@@ -9,6 +9,8 @@ block content
       a(class="contact" href="/user/"+ identities[i] )
         p= i
         | #{contact}
+      a(class="delete" href="/delete/" + identities[i]) Delete
+      br
 
   div
     a(href="/new")

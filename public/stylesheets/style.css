@@ -8,14 +8,27 @@ a {
 }
 
 .contact{
-  display: block;
+  display: inline-block;
   border: solid darkgray 1px;
   padding: 1em;
   border-radius: 5px;
   margin: 5px 0;
+  width: 50%;
 }
 
 .contact:hover{
+  background-color: seashell;
+}
+
+.delete{
+  display: inline-block;
+  border: solid darkgray 1px;
+  padding: 1em;
+  border-radius: 5px;
+  margin: 5px 0;
+  vertical-align: text-bottom;
+}
+.delete:hover{
   background-color: seashell;
 }
 
@@ -25,7 +38,7 @@ label{
   font-weight: bold;
 }
 
-input{
+.input{
   width: 25%;
   margin-right: 2em;
   margin-bottom: 1em;
@@ -33,4 +46,16 @@ input{
 
 select{
   margin-right: 2em;
+}
+
+.address{
+  margin-right: 2em;
+  margin-bottom: 1em;
+}
+#addressDiv{
+  display: inline-block;
+  vertical-align: text-top;
+}
+.addressBox{
+  display: inline-block;
 }

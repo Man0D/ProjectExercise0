@@ -14,7 +14,10 @@ var Schema = new mongoose.Schema({
     }],
     addresses: [{
         streetNb: Number,
-        streetType: String,
+        streetType: {
+            type: String,
+            enum: ['ROAD','AVENUE','DEAD END']
+        },
         street: String,
         city: String,
         state: String,

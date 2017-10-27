@@ -21,7 +21,7 @@ actionSave = function(){
 
 addEmailField  = function(){
     var input = document.createElement("input");
-    input.setAttribute('type','text');
+    input.setAttribute('type','email');
     input.setAttribute('name','email2');
     input.setAttribute('class','input');
 
