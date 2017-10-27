@@ -30,16 +30,20 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.post('/:id', function(req, res, next) {
-    console.log(req.body);
-
     mongo.findById( req.params.id , function(err, contact){
         if (err) throw err;
-        console.log(contact)
 
-        contact.firstName = res.body.firstName;
-        //contact.lastName = res.body.lastName;
-        //contact.birthDate = res.body.birthDate;
-        //contact.company = res.body.company;
+        if(contact.firstName != req.body.firstName)
+            contact.firstName = req.body.firstName;
+
+        if(contact.lastName != req.body.lastName)
+            contact.lastName = req.body.lastName;
+
+        if(contact.birthDate != req.body.birthDate)
+            contact.birthDate = req.body.birthDate;
+
+        if(contact.company != req.body.company)
+            contact.company = req.body.company;
 
         contact.save( function(err,updatedContact){
             if (err) throw err;
