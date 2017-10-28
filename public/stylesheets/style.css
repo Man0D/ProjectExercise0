@@ -25,11 +25,12 @@ a {
   border: solid darkgray 1px;
   padding: 1em;
   border-radius: 5px;
-  margin: 5px 0;
+  margin: 5px 5px;
   vertical-align: text-bottom;
 }
 .delete:hover{
   background-color: seashell;
+  cursor: pointer;
 }
 
 label{

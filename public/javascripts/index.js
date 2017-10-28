@@ -1,4 +1,3 @@
-
 window.onload = function(){
     //x();
 }
@@ -19,5 +18,18 @@ function x(){
         node.appendChild(textNumber);
 
         document.getElementById("display").appendChild(node);
+    }
+}
+
+function deleteContact(x){
+    console.log(this)
+    var r = confirm("You are about to delete the contact!");
+    if (r == true) {
+        var request= new XMLHttpRequest()
+        request.open("GET", "/delete/"+x)
+        request.setRequestHeader("Content-type", "application/json", true)
+        request.send()
+    } else {
+
     }
 }

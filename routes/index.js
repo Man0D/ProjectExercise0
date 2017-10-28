@@ -35,9 +35,9 @@ router.post('/new', function(req, res, next){
     var contact = new mongo(req.body);
     contact.save( function(err,createdObject){
         if(err) throw err;
-        res.status(200).send(createdObject);
+        //res.redirect('/');
     });
-    //res.send();
+    res.redirect('/');
 });
 
 router.get('/delete/:id', function(req, res, next){
@@ -48,7 +48,8 @@ router.get('/delete/:id', function(req, res, next){
             message: "Contact successfully deleted",
             id: contact._id
         };
-        res.status(200).send(response);
+        res.redirect('/');
+        //res.status(200).send(response);
     });
 });
 
