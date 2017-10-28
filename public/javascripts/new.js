@@ -1,18 +1,6 @@
-
 window.onload = function(){
-    document.getElementById("edit").onclick = actionEdit;
     document.getElementById("save").onclick = actionSave;
     document.getElementById("addEmail").onclick = addEmailField;
-
-}
-
-
-actionEdit = function(){
-    var x = document.getElementsByClassName("data");
-    for (var i = 0; i < x.length; i++) {
-        x[i].removeAttribute("disabled");
-    }
-    document.getElementById('save').removeAttribute("disabled");
 }
 
 actionSave = function(){
@@ -43,7 +31,7 @@ actionSave = function(){
 
 // AJAX XMLHttpRequest object in Javascript to send data to the server:
     var request= new XMLHttpRequest()
-    request.open("POST", "/user/"+document.getElementById('id').value)
+    request.open("POST", "/new");
     request.setRequestHeader("Content-type", "application/json", true)
     request.send(str_json)
 }
@@ -51,8 +39,8 @@ actionSave = function(){
 addEmailField  = function(){
     var input = document.createElement("input");
     input.setAttribute('type','email');
-    input.setAttribute('name','email2');
-    input.setAttribute('class','input');
+    input.setAttribute('name','emails[1][email]');
+    input.setAttribute('class','input data');
 
     var select = document.createElement('select');
     var option1 = document.createElement('option');
@@ -63,14 +51,12 @@ addEmailField  = function(){
     option2.appendChild(document.createTextNode('PERSONNAL'));
     select.appendChild(option1);
     select.appendChild(option2);
+    select.setAttribute('name','emails[1][type]');
+    select.setAttribute('class','data')
 
     document.getElementById("emails").appendChild(document.createElement('br'));
     document.getElementById("emails").appendChild(document.createElement('label'));
     document.getElementById("emails").appendChild(input);
     document.getElementById("emails").appendChild(select);
 
-
-
-
 }
-

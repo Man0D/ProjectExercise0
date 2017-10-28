@@ -21,9 +21,9 @@ router.get('/:id', function(req, res, next) {
                 bday: d(contact.birthDate),
                 company: d(contact.company),
                 emails: d(contact.emails[0].email),
-                typeEmail: d(contact.emails[0].type),
-                addresses: formatAddress(contact.addresses[0])
-            } );
+                type: d(contact.emails[0].type),
+                addresses: contact.addresses[0]
+            });
         }
         else
             res.redirect('/')

@@ -8,38 +8,66 @@ block content
         button Back
     hr
 
-    form( method="post" )
+    form( method="post" enctype="application/json")
         div
             label Id:
-            input(type="text" value=Id disabled="yes")
+            input(id="id" type="text" value=Id disabled)
         div
             label firstname:
-            input(class="input" type="text" value=fname name="firstName" disabled="yes")
+            input(class="input data" type="text" value=fname name="firstName" disabled)
         div
             label lastname:
-            input(class="input" type="text" value=lname name="lastName" disabled="yes")
+            input(class="input data" type="text" value=lname name="lastName" disabled)
         div
             label birth date:
-            input(class="input" type="text" value=bday name="birthDate" disabled="yes")
+            input(class="input data" type="date" value=bday name="birthDate" disabled)
         div
             label company:
-            input(class="input" type="text" value=company name="company" disabled="yes")
+            input(class="input data" type="text" value=company name="company" disabled)
         div(id="emails")
-            label emails:
-            input(class="input" type="text" value=emails name="email1" disabled="yes")
-            select( name="typeEmail" )
+            label email(s):
+            input(class="input data" type="email" value=emails name="emails[0][email]" disabled)
+            select( class="data" name="emails[0][type]" disabled)
                 option( value="PRO" ) PRO
                 option( value="PERSONNAL" ) PERSONNAL
             button(id="addEmail" type="button") +
         div
-            label addresses:
-            input(class="input" type="text" value=addresses name="addresses" disabled="yes")
-            select( name="type" )
-                option( value="PRO" ) PRO
-                option( value="PERSONNAL" ) PERSONNAL
+            label addresse(s):
+            div(id="addressDiv")
+                div(class="addressBox")
+                    label Street number:
+                    input(class="address data" type="number" name="addresses[0][streetNb]" disabled)
+                div(class="addressBox")
+                    label Street type:
+                    select( class="data" name="addresses[0][streetType]" disabled)
+                        option( value="ROAD" ) Road
+                        option( value="AVENUE" ) Avenue
+                        option( value="DEAD END" ) Dead end
+                div(class="addressBox")
+                    label Street name:
+                    input(class="address data" type="text" name="addresses[0][street]" disabled)
+                br
+                div(class="addressBox")
+                    label City:
+                    input(class="address data" type="text" name="addresses[0][city]" disabled)
+                div(class="addressBox")
+                    label State:
+                    input(class="address data" type="text" name="addresses[0][state]" disabled)
+                div(class="addressBox")
+                    label Zip code:
+                    input(class="address data" type="number" name="addresses[0][zipCode]" disabled)
+                br
+                div(class="addressBox")
+                    label Country:
+                    input(class="address data" type="text" name="addresses[0][country]" disabled)
+                div(class="addressBox")
+                    label Type:
+                    select( class="data" name="addresses[0][type]" disabled)
+                        option( value="PRO" ) PRO
+                        option( value="PERSONNAL" ) PERSONNAL
 
 
-        button(type="submit" id="save" disabled) Save changes
+        button(type="button" id="save" disabled ) Save changes
 
     hr
     button(id="edit") Edit the contact

@@ -1,5 +1,6 @@
 extends layout
 block head
+    script(src="/javascripts/new.js")
 
 
 block content
@@ -8,23 +9,23 @@ block content
         button Back
     hr
 
-    form( method="post" )
+    form( method="post" enctype="application/json")
         div
             label firstname:
-            input(class="input" type="text" name="firstName" required)
+            input(class="input data" type="text" name="firstName" )
         div
             label lastname:
-            input(class="input" type="text" name="lastName" required)
+            input(class="input data" type="text" name="lastName" )
         div
             label birth date:
-            input(class="input" type="date" name="birthDate" )
+            input(class="input data" type="date" name="birthDate" )
         div
             label company:
-            input(class="input" type="text" name="company" required)
+            input(class="input data" type="text" name="company" )
         div(id="emails")
             label email(s):
-            input(class="input" type="email" name="emails.email" )
-            select( name="emails.type" )
+            input(class="input data" type="email" name="emails[0][email]" )
+            select( class="data" name="emails[0][type]" )
                 option( value="PRO" ) PRO
                 option( value="PERSONNAL" ) PERSONNAL
             button(id="addEmail" type="button") +
@@ -33,37 +34,37 @@ block content
             div(id="addressDiv")
                 div(class="addressBox")
                     label Street number:
-                    input(class="address" type="number" name="streetNb" )
+                    input(class="address data" type="number" name="addresses[0][streetNb]" )
                 div(class="addressBox")
                     label Street type:
-                    select( name="streetType" )
+                    select( class="data" name="addresses[0][streetType]" )
                         option( value="ROAD" ) Road
                         option( value="AVENUE" ) Avenue
                         option( value="DEAD END" ) Dead end
                 div(class="addressBox")
                     label Street name:
-                    input(class="address" type="text" name="street" )
+                    input(class="address data" type="text" name="addresses[0][street]" )
                 br
                 div(class="addressBox")
                     label City:
-                    input(class="address" type="text" name="city" )
+                    input(class="address data" type="text" name="addresses[0][city]" )
                 div(class="addressBox")
                     label State:
-                    input(class="address" type="text" name="state" )
+                    input(class="address data" type="text" name="addresses[0][state]" )
                 div(class="addressBox")
                     label Zip code:
-                    input(class="address" type="number" name="zipCode" )
+                    input(class="address data" type="number" name="addresses[0][zipCode]" )
                 br
                 div(class="addressBox")
                     label Country:
-                    input(class="address" type="text" name="country" )
+                    input(class="address data" type="text" name="addresses[0][country]" )
                 div(class="addressBox")
                     label Type:
-                    select( name="type" )
+                    select( class="data" name="addresses[0][type]" )
                         option( value="PRO" ) PRO
                         option( value="PERSONNAL" ) PERSONNAL
 
 
-        button(type="submit" id="save" ) Save contact
+        button(type="button" id="save" ) Save contact
 
     hr
