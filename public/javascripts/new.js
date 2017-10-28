@@ -6,7 +6,6 @@ window.onload = function(){
 actionSave = function(){
 
     var formValues = document.getElementsByClassName('data');
-
     var obj = {};
     for(var i = 0; i < formValues.length ; i++){
         var x = formValues.item(i);
@@ -28,15 +27,14 @@ actionSave = function(){
 
     console.log(JSON.stringify(obj));
 
-    var str_json = JSON.stringify(obj) //gives me the JSON string.
+    var str_json = JSON.stringify(obj);
 
-// AJAX XMLHttpRequest object in Javascript to send data to the server:
     var request= new XMLHttpRequest();
     request.open("POST", "/new");
     request.setRequestHeader("Content-type", "application/json", true);
     request.onreadystatechange = function () {
         if(request.readyState === XMLHttpRequest.DONE && request.status === 200) {
-
+            window.location = window.origin
         }
     };
     request.send(str_json)

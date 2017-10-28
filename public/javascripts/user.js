@@ -12,7 +12,10 @@ actionEdit = function(){
     for (var i = 0; i < x.length; i++) {
         x[i].removeAttribute("disabled");
     }
+
     document.getElementById('save').removeAttribute("disabled");
+    document.getElementById('addEmail').removeAttribute("disabled");
+    document.getElementById('addAddress').removeAttribute("disabled");
 }
 
 actionSave = function(){
@@ -22,7 +25,7 @@ actionSave = function(){
     for(var i = 0; i < formValues.length ; i++){
         var x = formValues.item(i);
 
-        if(x.name.search(('['|']')) != -1 ){
+        if(x.name.search(/\[|\]/) != -1 ){
             var tab = x.name.replace(/]/g,'').split('[');
 
             if(obj[tab[0]] == undefined)
@@ -39,20 +42,23 @@ actionSave = function(){
 
     console.log(JSON.stringify(obj));
 
-    var str_json = JSON.stringify(obj) //gives me the JSON string.
+    var str_json = JSON.stringify(obj);
 
-// AJAX XMLHttpRequest object in Javascript to send data to the server:
-    var request= new XMLHttpRequest()
-    request.open("POST", "/user/"+document.getElementById('id').value)
-    request.setRequestHeader("Content-type", "application/json", true)
+    var request= new XMLHttpRequest();
+    request.open("POST", "/user/"+document.getElementById('id').value);
+    request.setRequestHeader("Content-type", "application/json", true);
+    request.onreadystatechange = function () {
+        if(request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+        }
+    };
     request.send(str_json)
 }
 
 addEmailField  = function(){
     var input = document.createElement("input");
     input.setAttribute('type','email');
-    input.setAttribute('name','email2');
-    input.setAttribute('class','input');
+    input.setAttribute('name','emails[1][email]');
+    input.setAttribute('class','input data');
 
     var select = document.createElement('select');
     var option1 = document.createElement('option');
@@ -63,14 +69,13 @@ addEmailField  = function(){
     option2.appendChild(document.createTextNode('PERSONNAL'));
     select.appendChild(option1);
     select.appendChild(option2);
+    select.setAttribute('name','emails[1][type]');
+    select.setAttribute('class','data')
 
     document.getElementById("emails").appendChild(document.createElement('br'));
     document.getElementById("emails").appendChild(document.createElement('label'));
     document.getElementById("emails").appendChild(input);
     document.getElementById("emails").appendChild(select);
-
-
-
-
 }
 
+//TODO: ajout de champ adresse, champ email => changer l'atttribut name

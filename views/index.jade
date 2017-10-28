@@ -4,6 +4,9 @@ block head
 
 block content
   h1 Contact List
+  div
+    a(href="/new")
+      button New Contact
   div(id="display")
     each contact, i in contacts
       a(class="contact" href="/user/"+ identities[i] )
@@ -12,6 +15,3 @@ block content
       button(class="delete" onclick="deleteContact('"+identities[i]+"')") Delete
       br
 
-  div
-    a(href="/new")
-      button New Contact

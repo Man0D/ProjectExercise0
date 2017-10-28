@@ -22,12 +22,17 @@ function x(){
 }
 
 function deleteContact(x){
-    console.log(this)
+
     var r = confirm("You are about to delete the contact!");
     if (r == true) {
-        var request= new XMLHttpRequest()
-        request.open("GET", "/delete/"+x)
-        request.setRequestHeader("Content-type", "application/json", true)
+        var request= new XMLHttpRequest();
+        request.open("GET", "/delete/"+x);
+        request.setRequestHeader("Content-type", "application/json", true);
+        request.onreadystatechange = function () {
+            if(request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+                window.location = window.location;
+            }
+        };
         request.send()
     } else {
 

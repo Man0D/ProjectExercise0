@@ -33,7 +33,6 @@ router.get('/:id', function(req, res, next) {
 router.post('/:id', function(req, res, next) {
     console.log(req.body);
 
-
     mongo.findById( req.params.id , function(err, contact){
         if (err) throw err;
 
@@ -49,11 +48,11 @@ router.post('/:id', function(req, res, next) {
         if(contact.company != req.body.company)
             contact.company = req.body.company;
 
-        if(contact.emails[0].email != req.body.email1)
-            contact.emails[0].email = req.body.email1;
+        if(contact.emails[0].email != req.body.email)
+            contact.emails[0].email = req.body.email;
 
-        if(contact.emails[0].type != req.body.typeEmail)
-            contact.emails[0].type = req.body.typeEmail;
+        if(contact.emails[0].type != req.body.type)
+            contact.emails[0].type = req.body.type;
 
         contact.save( function(err,updatedContact){
             if (err) throw err;

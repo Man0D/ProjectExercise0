@@ -31,7 +31,6 @@ router.get('/new', function(req, res, next){
 });
 
 router.post('/new', function(req, res, next){
-    console.log(req.body);
     var contact = new mongo(req.body);
     contact.save( function(err,createdObject){
         if(err) throw err;

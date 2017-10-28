@@ -30,7 +30,7 @@ block content
             select( class="data" name="emails[0][type]" disabled)
                 option( value="PRO" ) PRO
                 option( value="PERSONNAL" ) PERSONNAL
-            button(id="addEmail" type="button") +
+            button(id="addEmail" type="button" disabled) +
         div
             label addresse(s):
             div(id="addressDiv")
@@ -65,7 +65,7 @@ block content
                     select( class="data" name="addresses[0][type]" disabled)
                         option( value="PRO" ) PRO
                         option( value="PERSONNAL" ) PERSONNAL
-
+            button(id="addAddress" type="button" disabled) +
 
         button(type="button" id="save" disabled ) Save changes
 

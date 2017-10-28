@@ -56,6 +56,10 @@ select{
 #addressDiv{
   display: inline-block;
   vertical-align: text-top;
+  border: dashed gainsboro 1px;
+  border-radius: 5px;
+  padding: 1em;
+  margin-right: 2em;
 }
 .addressBox{
   display: inline-block;
