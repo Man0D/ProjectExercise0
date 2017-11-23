@@ -41,10 +41,18 @@ actionSave = function(){
 }
 
 addEmailField  = function(){
+    var div1 = document.createElement("div");
+    div1.setAttribute('class','col-sm-1');
+    var div2 = document.createElement("div");
+    div2.setAttribute('class','col-sm-9');
+
     var input = document.createElement("input");
     input.setAttribute('type','email');
     input.setAttribute('name','emails[1][email]');
-    input.setAttribute('class','input data');
+    input.setAttribute('class','data form-control');
+
+    div1.appendChild(document.createTextNode(''));
+    div2.appendChild(input);
 
     var select = document.createElement('select');
     var option1 = document.createElement('option');
@@ -56,11 +64,11 @@ addEmailField  = function(){
     select.appendChild(option1);
     select.appendChild(option2);
     select.setAttribute('name','emails[1][type]');
-    select.setAttribute('class','data')
+    select.setAttribute('class','data col-sm-2 custom-select')
 
     document.getElementById("emails").appendChild(document.createElement('br'));
-    document.getElementById("emails").appendChild(document.createElement('label'));
-    document.getElementById("emails").appendChild(input);
+    document.getElementById("emails").appendChild(div1);
+    document.getElementById("emails").appendChild(div2);
     document.getElementById("emails").appendChild(select);
 
 }

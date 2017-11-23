@@ -52,11 +52,9 @@ router.post('/:id', function(req, res, next) {
         if(contact.company != req.body.company)
             contact.company = req.body.company;
 
-        if(contact.emails[0].email != req.body.email)
-            contact.emails[0].email = req.body.email;
-
-        if(contact.emails[0].type != req.body.type)
-            contact.emails[0].type = req.body.type;
+        req.body.emails.forEach(function(e,i){
+                contact.emails[i] = e;
+        });
 
         contact.save( function(err,updatedContact){
             if (err) throw err;

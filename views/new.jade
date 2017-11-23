@@ -2,69 +2,87 @@ extends layout
 block head
     script(src="/javascripts/new.js")
 
-
 block content
     h1 Contact Informations
     a(href="/")
-        button Back
+        button( type="button" class="btn btn-primary") Back
     hr
 
     form( method="post" enctype="application/json")
-        div
-            label firstname:
-            input(class="input data" type="text" name="firstName" )
-        div
-            label lastname:
-            input(class="input data" type="text" name="lastName" )
-        div
-            label birth date:
-            input(class="input data" type="date" name="birthDate" )
-        div
-            label company:
-            input(class="input data" type="text" name="company" )
-        div(id="emails")
-            label email(s):
-            input(class="input data" type="email" name="emails[0][email]" )
-            select( class="data" name="emails[0][type]" )
-                option( value="PRO" ) PRO
-                option( value="PERSONNAL" ) PERSONNAL
-            button(id="addEmail" type="button") +
-        div
-            label addresse(s):
-            div(id="addressDiv")
-                div(class="addressBox")
-                    label Street number:
-                    input(class="address data" type="number" name="addresses[0][streetNb]" )
-                div(class="addressBox")
-                    label Street type:
-                    select( class="data" name="addresses[0][streetType]" )
-                        option( value="ROAD" ) Road
-                        option( value="AVENUE" ) Avenue
-                        option( value="DEAD END" ) Dead end
-                div(class="addressBox")
-                    label Street name:
-                    input(class="address data" type="text" name="addresses[0][street]" )
-                br
-                div(class="addressBox")
-                    label City:
-                    input(class="address data" type="text" name="addresses[0][city]" )
-                div(class="addressBox")
-                    label State:
-                    input(class="address data" type="text" name="addresses[0][state]" )
-                div(class="addressBox")
-                    label Zip code:
-                    input(class="address data" type="number" name="addresses[0][zipCode]" )
-                br
-                div(class="addressBox")
-                    label Country:
-                    input(class="address data" type="text" name="addresses[0][country]" )
-                div(class="addressBox")
-                    label Type:
-                    select( class="data" name="addresses[0][type]" )
-                        option( value="PRO" ) PRO
-                        option( value="PERSONNAL" ) PERSONNAL
+        div(class="form-group row")
+            label(class="col-sm-2 col-form-label") Firstname
+            div(class="col-sm-8")
+                input(class="data form-control" type="text" name="firstName" )
 
+        div(class="form-group row")
+            label(class="col-sm-2 col-form-label") Lastname
+            div(class="col-sm-8")
+                input(class=" data form-control" type="text" name="lastName" )
 
-        button(type="button" id="save" ) Save contact
+        div(class="form-group row")
+            label(class="col-sm-2 col-form-label") Birth date
+            div(class="col-sm-8")
+                input(class=" data form-control" type="date" name="birthDate" )
+
+        div(class="form-group row")
+            label(class="col-sm-2 col-form-label") Company
+            div(class="col-sm-8")
+                input(class=" data form-control" type="text" name="company" )
+
+        div(class="form-group row" )
+            label(class="col-sm-2 col-form-label") Email(s)
+            div(class="col-sm-7 form-row" id="emails")
+                div(class="col-sm-9")
+                    input(class="data form-control" type="email" value="" name="emails[0][email]" )
+                select( class="data col-sm-2 custom-select" name="emails[0][type]" )
+                    option( value="PRO" ) PRO
+                    option( value="PERSONNAL" ) PERSONNAL
+            div(class="col-sm-2")
+                button(id="addEmail" type="button" class="btn" ) +
+                button(id="removeEmail" type="button" class="btn" ) -
+
+        div(class="form-group row")
+            label(class="col-sm-2 col-form-label") addresse(s):
+
+            div(class="col-sm-9" id="addressDiv")
+                div(class="form-row")
+                    div(class="form-group col-md-4")
+                        label Street n°:
+                        input(class="data form-control" type="number" name="addresses[0][streetNb]" )
+                    div(class="form-group col-md-4")
+                        label Street type:
+                        br
+                        select( class="data custom-select" name="addresses[0][streetType]" )
+                            option( value="ROAD" selected) Road
+                            option( value="AVENUE" ) Avenue
+                            option( value="DEAD END" ) Dead end
+                    div(class="form-group col-md-4")
+                        label Street name:
+                        input(class="data form-control" type="text" name="addresses[0][street]" pattern="[a-zA-Z]*" )
+
+                div(class="form-row")
+                    div(class="form-group col-md-4")
+                        label City:
+                        input(class="data form-control" type="text" name="addresses[0][city]"  )
+                    div(class="form-group col-md-4")
+                        label State:
+                        input(class="data form-control" type="text" name="addresses[0][state]"  )
+                    div(class="form-group col-md-4")
+                        label Zip code:
+                        input(class="data form-control" type="number" name="addresses[0][zipCode]"  )
+
+                div(class="form-row")
+                    div(class="form-group col-md-4")
+                        label Country:
+                        input(class="data form-control" type="text" name="addresses[0][country]"  )
+                    div(class="form-group col-md-4")
+                        label Type:
+                        br
+                        select( class="data custom-select" name="addresses[0][type]" )
+                            option( value="PRO" selected) PRO
+                            option( value="PERSONNAL" ) PERSONNAL
+            button(class="btn" id="addAddress" type="button" disabled) +
+
+                button(type="button" id="save" ) Save contact
 
     hr
