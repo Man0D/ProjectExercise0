@@ -11,18 +11,22 @@ router.get('/:id', function(req, res, next) {
         if (contact != null) {
 
             console.log(contact);
-
             console.log('%s %s %s', contact.firstName, contact.lastName, contact.emails);
+
+            var emails = new Array();
+            contact.emails.forEach(function(e,i){
+                var obj = {'email':e.email,'type':e.type};
+                emails.push(obj);
+            });
 
             res.render('users', {
                 Id: req.params.id ,
                 fname: d(contact.firstName) ,
                 lname: d(contact.lastName),
-                bday: d(contact.birthDate),
+                bday: contact.birthDate != undefined ? contact.birthDate.toISOString().substr(0, 10) : '',
                 company: d(contact.company),
-                emails: d(contact.emails[0].email),
-                type: d(contact.emails[0].type),
-                addresses: contact.addresses[0]
+                emails: d(emails),
+                addresses: contact.addresses
             });
         }
         else
