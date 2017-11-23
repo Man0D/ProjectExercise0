@@ -12,8 +12,6 @@ a {
   border: solid darkgray 1px;
   padding: 1em;
   border-radius: 5px;
-  margin: 5px 0;
-  width: 50%;
 }
 
 .contact:hover{
@@ -39,20 +37,10 @@ label{
   font-weight: bold;
 }
 
-.input{
-  width: 25%;
-  margin-right: 2em;
-  margin-bottom: 1em;
-}
-
 select{
   margin-right: 2em;
 }
 
-.address{
-  margin-right: 2em;
-  margin-bottom: 1em;
-}
 #addressDiv{
   display: inline-block;
   vertical-align: text-top;
@@ -60,7 +48,4 @@ select{
   border-radius: 5px;
   padding: 1em;
   margin-right: 2em;
-}
-.addressBox{
-  display: inline-block;
 }

@@ -6,12 +6,23 @@ block content
   h1 Contact List
   div
     a(href="/new")
-      button New Contact
+      button(type="button" class="btn btn-primary") New Contact
+    hr
   div(id="display")
     each contact, i in contacts
-      a(class="contact" href="/user/"+ identities[i] )
-        p= i
-        | #{contact}
-      button(class="delete" onclick="deleteContact('"+identities[i]+"')") Delete
+      div(class="container-fluid")
+        div(class="row")
+          a(class="col-sm-10 contact" href="/user/"+ identities[i])
+            div(class="row")
+              div(class="col-sm-1")
+                strong #{i}
+              div(class="col-sm-5")
+                | Name:
+                strong  #{contact.fname} #{contact.lname}
+              div(class="col-sm-5")
+                | Company:
+                strong  #{contact.company}
+          div(class="col-sm")
+            button(type="button" class="btn btn-outline-danger" onclick="deleteContact('"+identities[i]+"')") Delete
       br
 

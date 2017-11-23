@@ -14,7 +14,8 @@ router.get('/', function(req, res, next) {
      var ids = new Array();
 
      contacts.forEach(function(contact,i){
-         tab[i] = contact.firstName +" - "+ contact.lastName +" - "+ contact.company;
+         var a = { "fname":contact.firstName , "lname":contact.lastName , "company":contact.company };
+         tab[i] = a;
          ids[i] = contact._id
           //console.log('%s %s %s', contact.firstName, contact.lastName, contact.company);
       })
