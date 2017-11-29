@@ -3,9 +3,11 @@ block head
     script(src="/javascripts/new.js")
 
 block content
-    h1 Contact Informations
-    a(href="/")
-        button( type="button" class="btn btn-primary") Back
+    div(class="row align-items-center justify-content-between")
+        div(class="col col-sm-6")
+            h1 Contact Informations
+        a(class="col col-sm-1 " href="/")
+            button( type="button" class="btn btn-primary") Back
     hr
 
     form( method="post" enctype="application/json")
@@ -32,14 +34,18 @@ block content
         div(class="form-group row" )
             label(class="col-sm-2 col-form-label") Email(s)
             div(class="col-sm-7 form-row" id="emails")
-                div(class="col-sm-9")
-                    input(class="data form-control" type="email" value="" name="emails[0][email]" )
-                select( class="data col-sm-2 custom-select" name="emails[0][type]" )
-                    option( value="PRO" ) PRO
-                    option( value="PERSONNAL" ) PERSONNAL
+                div(class="col-sm-12 form-row")
+                    div(class="col-sm-9")
+                        input(class="data form-control" type="email" value="" name="emails[0][email]" )
+                    select( class="data col-sm-3 custom-select" name="emails[0][type]" )
+                        option( value="PRO" ) PRO
+                        option( value="PERSONNAL" ) PERSONNAL
+                    br
+                    br
             div(class="col-sm-2")
-                button(id="addEmail" type="button" class="btn" ) +
-                button(id="removeEmail" type="button" class="btn" ) -
+                div(class="btn-group" data-toggle="buttons")
+                    button(id="addEmail" type="button" class="btn btn-outline-secondary" ) +
+                    button(id="removeEmail" type="button" class="btn btn-outline-secondary" ) -
 
         div(class="form-group row")
             label(class="col-sm-2 col-form-label") addresse(s):
@@ -86,3 +92,7 @@ block content
                 button(type="button" id="save" ) Save contact
 
     hr
+
+block footer
+    br
+    a(class="col col-sm-2 " href="/contact") Contact us

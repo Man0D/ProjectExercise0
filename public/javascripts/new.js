@@ -1,6 +1,7 @@
 window.onload = function(){
     document.getElementById("save").onclick = actionSave;
     document.getElementById("addEmail").onclick = addEmailField;
+    document.getElementById("removeEmail").onclick = removeEmailField;
 }
 
 actionSave = function(){
@@ -41,18 +42,21 @@ actionSave = function(){
 }
 
 addEmailField  = function(){
-    var div1 = document.createElement("div");
-    div1.setAttribute('class','col-sm-1');
     var div2 = document.createElement("div");
     div2.setAttribute('class','col-sm-9');
+    var div3 = document.createElement("div");
+    div3.setAttribute('class','col-sm-12 form-row');
+
+    div3.appendChild(document.createElement('br'));
+    div3.appendChild(document.createElement('br'));
 
     var input = document.createElement("input");
     input.setAttribute('type','email');
     input.setAttribute('name','emails[1][email]');
     input.setAttribute('class','data form-control');
 
-    div1.appendChild(document.createTextNode(''));
     div2.appendChild(input);
+    div3.appendChild(div2);
 
     var select = document.createElement('select');
     var option1 = document.createElement('option');
@@ -64,11 +68,17 @@ addEmailField  = function(){
     select.appendChild(option1);
     select.appendChild(option2);
     select.setAttribute('name','emails[1][type]');
-    select.setAttribute('class','data col-sm-2 custom-select')
+    select.setAttribute('class','data col-sm-3 custom-select')
 
-    document.getElementById("emails").appendChild(document.createElement('br'));
-    document.getElementById("emails").appendChild(div1);
-    document.getElementById("emails").appendChild(div2);
-    document.getElementById("emails").appendChild(select);
+    div3.appendChild(select);
 
+    document.getElementById("emails").appendChild(div3);
+};
+
+removeEmailField = function(){
+    var t = document.getElementById("emails");
+
+    if(t.hasChildNodes()){
+        t.removeChild(t.lastChild);
+    }
 }

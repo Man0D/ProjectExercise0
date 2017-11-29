@@ -1,0 +1,29 @@
+extends layout
+block head
+    script(src="/javascripts/new.js")
+
+block content
+    div(class="row align-items-center justify-content-between")
+        div(class="col col-sm-6")
+            h1 Contact Us
+        a(class="col col-sm-1 " href="/")
+            button( type="button" class="btn btn-primary") Back
+    hr
+
+    form(action="mailto:dauda555@yopmail.fr" method="post" enctype="text/plain")
+        label Name:
+        br
+        input(class="form-control" type="text" name="name")
+        br
+        label E-mail:
+        br
+        input(class="form-control" type="email" name="mail")
+        br
+        label Comment:
+        br
+        input(class="form-control" type="text" name="comment" size="50" maxlength="500" placeholder="(500 caract. max)")
+        br
+        br
+        input(class='btn' type="submit" value="Send")
+        input(class='btn' type="reset" value="Reset")
+

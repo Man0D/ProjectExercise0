@@ -3,11 +3,14 @@ block head
   script(src="javascripts/index.js")
 
 block content
-  h1 Contact List
-  div
-    a(href="/new")
+
+  div(class="row align-items-center")
+    div(class="col col-sm-3")
+      h1 Contact List
+    a(class="col col-sm-2 " href="/new")
       button(type="button" class="btn btn-primary") New Contact
-    hr
+
+  hr
   div(id="display")
     each contact, i in contacts
       div(class="container-fluid")
@@ -26,3 +29,6 @@ block content
             button(type="button" class="btn btn-outline-danger" onclick="deleteContact('"+identities[i]+"')") Delete
       br
 
+block footer
+  br
+  a(class="col col-sm-2 " href="/contact") Contact us

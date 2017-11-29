@@ -3,63 +3,69 @@ block head
     script(src="/javascripts/user.js")
 
 block content
-    h1 Contact Informations
-    a(href="/")
-        button( type="button" class="btn btn-primary") Back
+    div(class="row align-items-center justify-content-between")
+        div(class="col col-sm-6")
+            h1 Contact Informations
+        a(class="col col-sm-1 " href="/")
+            button( type="button" class="btn btn-primary") Back
     hr
 
     form( method="post" enctype="application/json")
         div(class="form-group row")
             label(class="col-sm-2 col-form-label") Id
-            div(class="col-sm-10")
-                input(readonly class="form-control-plaintext" id="id" type="text" value=Id )
+            div(class="col-sm-8")
+                input(readonly class="form-control-plaintext col-sm-12" id="id" type="text" value=Id )
 
         div(class="form-group row")
             label(class="col-sm-2 col-form-label") Firstname
-            div(class="col-sm-10")
+            div(class="col-sm-8")
                 input(class="data form-control" type="text" value=fname name="firstName" disabled)
 
         div(class="form-group row")
             label(class="col-sm-2 col-form-label") Lastname
-            div(class="col-sm-10")
+            div(class="col-sm-8")
                 input(class="data form-control" type="text" value=lname name="lastName" disabled)
 
         div(class="form-group row")
             label(class="col-sm-2 col-form-label") Birth date
-            div(class="col-sm-10")
+            div(class="col-sm-8")
                 input(class="data form-control" type="date" value=bday name="birthDate" disabled)
 
         div(class="form-group row")
             label(class="col-sm-2 col-form-label") Company
-            div(class="col-sm-10")
+            div(class="col-sm-8")
                 input(class="data form-control" type="text" value=company name="company" disabled)
 
         div(class="form-group row" )
             label(class="col-sm-2 col-form-label") Email(s)
-            div(class="col-sm-9 form-row" id="emails")
+            div(class="col-sm-7 form-row" id="emails")
                 each email, i in emails
-                    div(class="col-sm-1")
-                        input(readonly class="form-control-plaintext" value=i)
-                    div(class="col-sm-9")
-                        input(class="data form-control" type="email" value=email.email name="emails[0][email]" disabled)
-                    select( class="data col-sm-2 custom-select" name="emails[0][type]" disabled)
-                        case email.type
-                            when "PERSONNAL"
-                                option( value="PRO" ) PRO
-                                option( value="PERSONNAL" selected) PERSONNAL
-                            default
-                                option( value="PRO" selected) PRO
-                                option( value="PERSONNAL" ) PERSONNAL
+                    div(class="col-sm-12 form-row")
+                        div(class="col-sm-9")
+                            input(class="data form-control" type="email" value=email.email name="emails[0][email]" disabled)
+                        select( class="data col-sm-3 custom-select" name="emails[0][type]" disabled)
+                            case email.type
+                                when "PERSONNAL"
+                                    option( value="PRO" ) PRO
+                                    option( value="PERSONNAL" selected) PERSONNAL
+                                default
+                                    option( value="PRO" selected) PRO
+                                    option( value="PERSONNAL" ) PERSONNAL
+                        br
+                        br
                 else
-                    div(class="col-sm-1")
-                        input(readonly class="form-control-plaintext" value=0)
-                    div(class="col-sm-9")
-                        input(class="data form-control" type="email" value="" name="emails[0][email]" disabled)
-                    select( class="data col-sm-2 custom-select" name="emails[0][type]" disabled)
-                        option( value="PRO" ) PRO
-                        option( value="PERSONNAL" ) PERSONNAL
-            div(class="col-sm-1")
-                button(id="addEmail" type="button" class="btn" disabled) +
+                    div(class="col-sm-12 form-row")
+                        div(class="col-sm-9")
+                            input(class="data form-control" type="email" value="" name="emails[0][email]" )
+                        select( class="data col-sm-3 custom-select" name="emails[0][type]" )
+                            option( value="PRO" ) PRO
+                            option( value="PERSONNAL" ) PERSONNAL
+                        br
+                        br
+            div(class="col-sm-2")
+                div(class="btn-group" data-toggle="buttons")
+                    button(id="addEmail" type="button" class="btn btn-outline-secondary" disabled) +
+                    button(id="removeEmail" type="button" class="btn btn-outline-secondary" disabled) -
 
         div(class="form-group row")
             label(class="col-sm-2 col-form-label") addresse(s):
@@ -126,3 +132,7 @@ block content
 
     hr
     button( type="button" class="btn" id="edit") Edit the contact
+
+block footer
+    br
+    a(class="col col-sm-2 " href="/contact") Contact us
