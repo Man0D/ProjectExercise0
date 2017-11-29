@@ -11,6 +11,38 @@ block content
       button(type="button" class="btn btn-primary") New Contact
 
   hr
+  form(class="row" method='GET')
+    div(class="col-sm-6 row")
+      label(class="col-sm-3") Sort by:
+      div(class="btn-group col-sm-9" data-toggle="buttons")
+        label(class="btn btn-outline-primary")
+          input( type="radio" name="s" autocomplete="off" value="" )
+          | Date of creation
+        label(class="btn btn-outline-primary")
+          input(type="radio" name="s" autocomplete="off" value="lname" )
+          | Lastname
+        label(class="btn btn-outline-primary")
+          input( type="radio" name="s" autocomplete="off" value="cmpy" )
+          | Company
+
+    div(class="col-sm-5 row")
+      label(class="col-sm-3") Display:
+      div(class="btn-group col-sm-8" data-toggle="buttons")
+        label(class="btn btn-outline-primary")
+          input( type="radio" name="li" autocomplete="off" value="20" )
+          | 20
+        label(class="btn btn-outline-primary")
+          input( type="radio" name="li" autocomplete="off" value="40" )
+          | 40
+        label(class="btn btn-outline-primary")
+          input( type="radio" name="li" autocomplete="off" value="60" )
+          | 60
+        label(class="btn btn-outline-primary")
+          input( type="radio" name="li" autocomplete="off" value="all" )
+          | All
+     button(class="btn btn-primary col-sm-1" type="submit") GO !
+
+  br
   div(id="display")
     each contact, i in contacts
       div(class="container-fluid")
@@ -18,7 +50,7 @@ block content
           a(class="col-sm-10 contact" href="/user/"+ identities[i])
             div(class="row")
               div(class="col-sm-1")
-                strong #{i}
+                strong #{i+1}
               div(class="col-sm-5")
                 | Name:
                 strong  #{contact.fname} #{contact.lname}
