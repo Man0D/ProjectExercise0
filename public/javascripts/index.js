@@ -1,5 +1,5 @@
 window.onload = function(){
-    document.getElementsByName("s").button('toggle');
+    //document.getElementsByName("s").button('toggle');
 }
 
 
