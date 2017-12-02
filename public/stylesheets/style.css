@@ -1,60 +1,64 @@
 body {
-  padding: 50px 50px 0px 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px 50px 0px 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
 .contact{
-  display: inline-block;
-  border: solid darkgray 1px;
-  padding: 1em;
-  border-radius: 5px;
+    display: inline-block;
+    border: solid #007bff 1px !important;
+    border-radius: 5px ;
+    padding: 0.5em 1em !important;
 }
-
 .contact:hover{
-  background-color: seashell;
+    background-color: #007bff;
+    color: white;
+}
+.contact div div{
+    text-align: left;
 }
 
 .delete{
-  display: inline-block;
-  border: solid darkgray 1px;
-  padding: 1em;
-  border-radius: 5px;
-  margin: 5px 5px;
-  vertical-align: text-bottom;
+    display: inline-block;
+    border: solid darkgray 1px;
+    padding: 1em;
+    border-radius: 5px;
+    margin: 5px 5px;
+    vertical-align: text-bottom;
 }
 .delete:hover{
-  background-color: seashell;
-  cursor: pointer;
+    background-color: seashell;
+    cursor: pointer;
 }
 
 label{
-  display:inline-block;
-  width:100px;
-  font-weight: bold;
+    display:inline-block;
+    width:100px;
+    font-weight: bold;
 }
 
 select{
-  margin-right: 2em;
+    margin-right: 2em;
 }
 
 #addressDiv{
-  display: inline-block;
-  vertical-align: text-top;
-  border: dashed gainsboro 1px;
-  border-radius: 5px;
-  padding: 1em;
-  margin-right: 2em;
+    display: inline-block;
+    vertical-align: text-top;
+    border: dashed gainsboro 1px;
+    border-radius: 5px;
+    padding: 1em;
+    margin-right: 2em;
 }
 
-footer div{
-  border: 0.5px solid #f0f0f0;
-  border-radius: 5px;
-  position: relative;
-  background-color: #fafafa;
-  height: 6em;
-  margin-top: 2em
+footer{
+    border: 0.5px solid #f0f0f0;
+    border-radius: 5px;
+    position: relative;
+    background-color: #fafafa;
+    height: 6em;
+    margin-top: 2em;
+    padding-bottom: 5em;
 }
