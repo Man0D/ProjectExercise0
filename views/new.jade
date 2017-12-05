@@ -6,7 +6,7 @@ block content
     div(class="row align-items-center justify-content-between")
         div(class="col col-sm-6")
             h1 Contact Informations
-        a(class="col col-sm-1 " href="/")
+        a(class="col-3 col-lg-1 " href="/")
             button( type="button" class="btn btn-primary") Back
     hr
 
@@ -31,26 +31,26 @@ block content
             div(class="col-sm-8")
                 input(class=" data form-control" type="text" name="company" )
 
-        div(class="form-group row" )
-            label(class="col-sm-2 col-form-label") Email(s)
-            div(class="col-sm-7 form-row" id="emails")
-                div(class="col-sm-12 form-row")
-                    div(class="col-sm-9")
+        div(class="form-group row justify-content-around" )
+            label(class="col-5 col-md-2 col-form-label") Email(s)
+            div(class="col-8 form-row" id="emails")
+                div(class="col-12 form-row")
+                    div(class="col-8 col-md-9")
                         input(class="data form-control" type="email" value="" name="emails[0][email]" )
-                    select( class="data col-sm-3 custom-select" name="emails[0][type]" )
+                    select( class="data col-4 col-md-3 custom-select" name="emails[0][type]" )
                         option( value="PRO" ) PRO
                         option( value="PERSONNAL" ) PERSONNAL
                     br
                     br
-            div(class="col-sm-2")
+            div(class="col-2 ")
                 div(class="btn-group" data-toggle="buttons")
                     button(id="addEmail" type="button" class="btn btn-outline-secondary" ) +
                     button(id="removeEmail" type="button" class="btn btn-outline-secondary" ) -
 
-        div(class="form-group row")
-            label(class="col-sm-2 col-form-label") addresse(s):
+        div(class="form-group row justify-content-center")
+            label(class="col-4 col-md-2 col-form-label") address:
 
-            div(class="col-sm-9" id="addressDiv")
+            div(class="col-9" id="addressDiv")
                 div(class="form-row")
                     div(class="form-group col-md-4")
                         label Street n°:
@@ -87,12 +87,9 @@ block content
                         select( class="data custom-select" name="addresses[0][type]" )
                             option( value="PRO" selected) PRO
                             option( value="PERSONNAL" ) PERSONNAL
-            button(class="btn" id="addAddress" type="button" disabled) +
+            div(class="col-1")
+                button(class="btn" id="addAddress" type="button" disabled) +
 
-                button(type="button" id="save" ) Save contact
+        button(class="btn" type="button" id="save" ) Save contact
 
-    hr
 
-block footer
-    br
-    a(class="col col-sm-2 " href="/contact") Contact us

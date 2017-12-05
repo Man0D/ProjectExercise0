@@ -2,6 +2,7 @@ doctype html
 html(lang="en")
     head
         meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+
         title= title
         link(rel='stylesheet', href='/stylesheets/style.css')
         link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous")
@@ -14,3 +15,13 @@ html(lang="en")
         footer(class="footer")
             div(class="container")
                 block footer
+                    br
+                    a(class="col col-sm-2 " href="/contact") Contact us
+                    br
+                    div(class="row justify-content-around")
+                        a( class="col-4" href="https://heroku.com/" )
+                            img( class="img" src="images/built-on-heroku-dark.ef2aa337.svg" class="img-fluid mx-auto d-block")
+                        a( class="col-4" href="https://mlab.com/" )
+                            img( src="images/mLab-logo-onlight.png"  class="img-fluid mx-auto d-block")
+                        a( class="col-4" href="https://nodejs.org/" )
+                            img( src="images/nodejs-new-black.png" class="img-fluid mx-auto d-block")
