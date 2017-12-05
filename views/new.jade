@@ -12,28 +12,28 @@ block content
 
     form( method="post" enctype="application/json")
         div(class="form-group row")
-            label(class="col-sm-2 col-form-label") Firstname
-            div(class="col-sm-8")
+            label(class="col-4 col-md-2 col-form-label") Firstname
+            div(class="col-12 col-md-8")
                 input(class="data form-control" type="text" name="firstName" )
 
         div(class="form-group row")
-            label(class="col-sm-2 col-form-label") Lastname
-            div(class="col-sm-8")
+            label(class="col-4 col-md-2 col-form-label") Lastname
+            div(class="col-12 col-md-8")
                 input(class=" data form-control" type="text" name="lastName" )
 
         div(class="form-group row")
-            label(class="col-sm-2 col-form-label") Birth date
-            div(class="col-sm-8")
+            label(class="col-4 col-md-2 col-form-label") Birth date
+            div(class="col-12 col-md-8")
                 input(class=" data form-control" type="date" name="birthDate" )
 
         div(class="form-group row")
-            label(class="col-sm-2 col-form-label") Company
-            div(class="col-sm-8")
+            label(class="col-4 col-md-2 col-form-label") Company
+            div(class="col-12 col-md-8")
                 input(class=" data form-control" type="text" name="company" )
 
-        div(class="form-group row justify-content-around" )
+        div(class="form-group row" )
             label(class="col-5 col-md-2 col-form-label") Email(s)
-            div(class="col-8 form-row" id="emails")
+            div(class="col-9 col-md-8 form-row" id="emails")
                 div(class="col-12 form-row")
                     div(class="col-8 col-md-9")
                         input(class="data form-control" type="email" value="" name="emails[0][email]" )
@@ -48,7 +48,7 @@ block content
                     button(id="removeEmail" type="button" class="btn btn-outline-secondary" ) -
 
         div(class="form-group row justify-content-center")
-            label(class="col-4 col-md-2 col-form-label") address:
+            label(class="col-4 col-md-2 col-form-label") Address:
 
             div(class="col-9" id="addressDiv")
                 div(class="form-row")
@@ -90,6 +90,7 @@ block content
             div(class="col-1")
                 button(class="btn" id="addAddress" type="button" disabled) +
 
+        br
         button(class="btn" type="button" id="save" ) Save contact
 
 

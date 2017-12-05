@@ -4,17 +4,17 @@ block head
 
 block content
 
-  div(class="row align-items-center")
-    div(class="col-6 col-lg-4 col-xl-3")
+  div(class="row align-items-center justify-content-start")
+    div(class="col-12 col-sm-6 col-lg-4 col-xl-3")
       h1 Contact List
-    a(class="col-2 col-lg-2 " href="/new")
+    a(class="col-6 col-sm-2 col-lg-2 " href="/new")
       button(type="button" class="btn btn-primary") New Contact
 
   hr
   form(class="row" method='GET')
     div(class="col-12 col-lg-6 row")
-      label(class="col-3") Sort by:
-      div(class="btn-group col-9 row" data-toggle="buttons")
+      label(class="col-6 col-md-3 ") Sort by:
+      div(class="btn-group col-12 col-md-9 row " data-toggle="buttons")
         label(class="btn btn-outline-primary col-4" )
           input( type="radio" name="s" autocomplete="off" value="" )
           | Date
@@ -25,8 +25,8 @@ block content
           input( type="radio" name="s" autocomplete="off" value="cmpy" )
           | Company
 
-    div(class="col-10 col-lg-5 row")
-      label(class="col-3") Display:
+    div(class="col-12 col-lg-5 row")
+      label(class="col-4 col-md-3") Display:
       div(class="btn-group col-9 row" data-toggle="buttons")
         label(class="btn btn-outline-primary col-3")
           input( type="radio" name="li" autocomplete="off" value="20" )
@@ -41,21 +41,22 @@ block content
           input( type="radio" name="li" autocomplete="off" value="all" )
           | All
 
-    button(class="btn btn-primary col-2 col-lg-1" type="submit") GO !
+    div(class="col-12 col-md-2 col-lg-1 row")
+        button(class="btn btn-primary col-12" type="submit") GO !
 
   br
   div(id="display")
     each contact, i in contacts
       div(class="container-fluid")
-        div(class="row justify-content-center align-items-center ")
-          a(class="col-10 contact btn " href="/user/"+ identities[i])
+        div(class="row align-items-center ")
+          a(class="col-8 col-md-10 contact btn " href="/user/"+ identities[i])
             div(class="row")
               div(class="col-1")
                 strong #{i+1}
-              div(class="col-5 text-truncate")
+              div(class="col-10 col-md-5 text-truncate")
                 | Name:
                 strong  #{contact.fname} #{contact.lname}
-              div(class="col-6 text-truncate")
+              div(class="col-12 col-md-6 text-truncate")
                 | Company:
                 strong  #{contact.company}
           div(class="col-1")

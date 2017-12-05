@@ -10,6 +10,7 @@ body {
      */
     height: 100%;
     margin: 0;
+    max-width: 100%;
 
 }
 
@@ -87,9 +88,26 @@ select{
 }
 
 
-@media screen and (max-width: 640px){
+
+@media screen and (max-width: 768px){
     .container{
         padding-left: 0 !important;
         padding-right: 0 !important;
+    }
+
+    .row{
+        max-width: 100%;
+        margin: 0 !important;
+    }
+
+    .form-group{
+        margin: 0 !important;
+    }
+
+    form{
+        margin: 0 !important;
+    }
+    .contact{
+        padding: 0.2em !important;
     }
 }
