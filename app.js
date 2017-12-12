@@ -4,18 +4,35 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var mongoose = require('mongoose');
+const MongoStore = require('connect-mongo')(session);
+
 var db = require('./model/db');
 var contacts = require('./model/contacts');
 
 var index = require('./routes/index');
+var main = require('./routes/main');
 var users = require('./routes/user');
 var contactpage = require('./routes/contact');
+var sign_in = require('./routes/signin');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+
+app.use(session({
+    secret: 'abracadabra',
+    saveUninitialized: false, // don't create session until something stored
+    resave: false, //don't save session if unmodified
+    store: new MongoStore({
+        mongooseConnection: mongoose.connection,
+        touchAfter: 1 * 60 * 60 // = 1 hour
+    })
+}));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -31,8 +48,11 @@ app.use(express.static(path.join(__dirname, 'public')));
     next();
 });*/
 
+
 app.use('/', index);
+app.use('/main', main);
 app.use('/user', users);
+app.use('/signin', sign_in);
 app.use('/contact', contactpage);
 
 // catch 404 and forward to error handler

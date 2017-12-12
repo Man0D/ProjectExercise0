@@ -1,0 +1,29 @@
+extends layout
+
+
+block content
+    div(class="row align-items-center justify-content-center")
+        div(class="col-10 col-sm-6 col-lg-4 col-xl-3")
+            h1 IO Contacts
+
+    hr
+    div(class="container alert alert-danger" role="alert")
+        h4(class="alert-heading") Welcome on this app !
+        | The website is currently in development...
+        br
+        strong Sign in & login are not working
+
+    h2 Sign in
+    div( class="container" )
+        form(method="post" enctype="application/json")
+            div( class="form-group row")
+                label(class="col-6 col-md-4 col-lg-3") Username
+                div( class="col-12 col-md-8 col-lg-6")
+                    input(class="form-control" type="text" name="username")
+
+            div( class="form-group row")
+                label(class="col-6 col-md-4 col-lg-3") Password
+                div( class="col-12 col-md-8 col-lg-6")
+                    input(class="form-control" type="password" name="pwd")
+
+            button(type="submit" class="btn btn-primary") Let's go
