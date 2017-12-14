@@ -7,23 +7,39 @@ block content
             h1 IO Contacts
 
     hr
-    div(class="container alert alert-danger" role="alert")
+    div(class="col  alert alert-danger" role="alert")
         h4(class="alert-heading") Welcome on this app !
         | The website is currently in development...
         br
-        strong Sign in & login are not working
+        strong Sign in & login are not working ¯\_(ツ)_/¯
 
-    h2 Sign in
-    div( class="container" )
-        form(method="post" enctype="application/json")
-            div( class="form-group row")
-                label(class="col-6 col-md-4 col-lg-3") Username
-                div( class="col-12 col-md-8 col-lg-6")
-                    input(class="form-control" type="text" name="username")
+    div(class="row align-items-center justify-content-start")
+        div(class="col-10 col-sm-6 col-lg-4 col-xl-3")
+            h2 Log in
 
-            div( class="form-group row")
-                label(class="col-6 col-md-4 col-lg-3") Password
-                div( class="col-12 col-md-8 col-lg-6")
-                    input(class="form-control" type="password" name="pwd")
+    br
+    div( class="row justify-content-center" )
+        div(class="col-12 col-md-10 col-lg-6")
+            form(method="post" enctype="application/json")
+                div( class="form-group row")
+                    label(class="col-6 col-md-4 col-lg-3") Username
+                    div( class="col-12 col-md-8 col-lg-8")
+                        input(class="form-control" type="text" name="username")
 
-            button(type="submit" class="btn btn-primary") Let's go
+                div( class="form-group row")
+                    label(class="col-6 col-md-4 col-lg-3") Password
+                    div( class="col-12 col-md-8 col-lg-8")
+                        input(class="form-control" type="password" name="pwd")
+
+                br
+                div(class="row justify-content-end")
+                    button(type="submit" class="col-12 btn btn-primary") Login
+
+    br
+    div( class="col-12 text-center" )
+        strong I don't have an account !
+        | &nbsp; Let me &nbsp;
+        a(href="/signin") Sign in
+
+    div( class="col-12 text-center" )
+        a(href="/") I forgot my password !

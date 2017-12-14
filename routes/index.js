@@ -5,7 +5,7 @@ var router = express.Router();
 
 
 router.get('/', function(req, res, next) {
-    res.render('homepage');
+    res.render('homepage', { title: "IO-Contacts"});
 });
 
 router.post('/', function(req, res, next) {

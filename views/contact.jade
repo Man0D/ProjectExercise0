@@ -4,26 +4,30 @@ block head
 
 block content
     div(class="row align-items-center justify-content-between")
-        div(class="col col-sm-6")
+        div(class="col-8 col-sm-6 col-lg-4 col-xl-3")
             h1 Contact Us
-        a(class="col col-sm-1 " href="/")
+        a(class="col-4 col-sm-2 col-lg-2 " href="/")
             button( type="button" class="btn btn-primary") Back
     hr
 
-    form(action="mailto:dauda555@yopmail.fr" method="post" enctype="text/plain")
-        label Name:
-        br
-        input(class="form-control" type="text" name="name")
-        br
-        label E-mail:
-        br
-        input(class="form-control" type="email" name="mail")
-        br
-        label Comment:
-        br
-        input(class="form-control" type="text" name="comment" size="50" maxlength="500" placeholder="(500 caract. max)")
-        br
-        br
-        input(class='btn' type="submit" value="Send")
-        input(class='btn' type="reset" value="Reset")
+    div(class="container")
+        form(action="mailto:dauda555@yopmail.fr" method="post" enctype="text/plain")
+            div( class="form-group row")
+                label(class="col-6 col-md-4 col-lg-3") Name:
+                div( class="col-12 col-md-8 col-lg-6")
+                    input(class="form-control" type="text" name="name")
+
+            div( class="form-group row")
+                label(class="col-6 col-md-4 col-lg-3") E-mail:
+                div( class="col-12 col-md-8 col-lg-6")
+                    input(class="form-control" type="email" name="mail")
+
+            div( class="form-group row")
+                label(class="col-6 col-md-4 col-lg-3") Comment:
+                div( class="col-12 col-md-8 col-lg-6")
+                    input(class="form-control" type="text" name="comment" size="50" maxlength="500" placeholder="(500 caract. max)" )
+            br
+            div(class="row justify-content-center ")
+                input(class='col-2 btn btn-secondary' type="submit" value="Send")
+                input(class='col-2 offset-2 btn' type="reset" value="Reset")
 

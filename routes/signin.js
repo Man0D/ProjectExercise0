@@ -5,7 +5,7 @@ var router = express.Router();
 
 
 router.get('/', function(req, res, next) {
-    res.render('signin');
+    res.render('signin', { title: "IO-Contacts - Sign in"});
 });
 
 router.post('/', function(req, res, next) {
