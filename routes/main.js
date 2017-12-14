@@ -60,7 +60,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/new', function(req, res, next){
-   res.render('new');
+   res.render('new',{ title: "New Contact" });
 });
 
 router.post('/new', function(req, res, next){

@@ -1,3 +1,4 @@
+var compt = 0;
 
 window.onload = function(){
     document.getElementById("edit").onclick = actionEdit;
@@ -58,21 +59,23 @@ actionSave = function(){
 }
 
 addEmailField  = function(){
-    var div2 = document.createElement("div");
-    div2.setAttribute('class','col-sm-9');
-    var div3 = document.createElement("div");
-    div3.setAttribute('class','col-sm-12 form-row');
+    compt++;
 
-    div3.appendChild(document.createElement('br'));
-    div3.appendChild(document.createElement('br'));
+    var div2 = document.createElement("div");
+    div2.setAttribute('class','col-8 col-md-9');
+    var div1 = document.createElement("div");
+    div1.setAttribute('class','col-12 form-row');
+
+    div1.appendChild(document.createElement('br'));
+    div1.appendChild(document.createElement('br'));
 
     var input = document.createElement("input");
     input.setAttribute('type','email');
-    input.setAttribute('name','emails[1][email]');
+    input.setAttribute('name','emails['+compt+'][email]');
     input.setAttribute('class','data form-control');
 
     div2.appendChild(input);
-    div3.appendChild(div2);
+    div1.appendChild(div2);
 
     var select = document.createElement('select');
     var option1 = document.createElement('option');
@@ -83,12 +86,12 @@ addEmailField  = function(){
     option2.appendChild(document.createTextNode('PERSONNAL'));
     select.appendChild(option1);
     select.appendChild(option2);
-    select.setAttribute('name','emails[1][type]');
-    select.setAttribute('class','data col-sm-3 custom-select')
+    select.setAttribute('name','emails['+compt+'][type]');
+    select.setAttribute('class','data col-4 col-md-3 custom-select')
 
-    div3.appendChild(select);
+    div1.appendChild(select);
 
-    document.getElementById("emails").appendChild(div3);
+    document.getElementById("emails").appendChild(div1);
 }
 
 removeEmailField = function(){
@@ -97,5 +100,6 @@ removeEmailField = function(){
     if(t.hasChildNodes()){
         t.removeChild(t.lastChild);
     }
+    compt--;
 }
 //TODO: ajout de champ adresse, champ email => changer l'atttribut name
