@@ -52,7 +52,7 @@ router.get('/', function(req, res, next) {
             //console.log('%s %s %s', contact.firstName, contact.lastName, contact.company);
         })
 
-        res.render('index', { contacts: tab , identities: ids});
+        res.render('index', { title: "My Contacts", contacts: tab , identities: ids});
 
     }).sort(sort).limit(limit);
 
@@ -69,7 +69,7 @@ router.post('/new', function(req, res, next){
         if(err) throw err;
         //res.redirect('/');
     });
-    res.redirect('/');
+    res.redirect('/main');
 });
 
 router.get('/delete/:id', function(req, res, next){
@@ -80,7 +80,7 @@ router.get('/delete/:id', function(req, res, next){
             message: "Contact successfully deleted",
             id: contact._id
         };
-        res.redirect('/');
+        res.redirect('/main');
         //res.status(200).send(response);
     });
 });
