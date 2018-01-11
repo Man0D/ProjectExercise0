@@ -8,7 +8,7 @@ const   DefaultSort     = null,
 
 /* GET home page. */
 router.get('/', isLoggedIn, function(req, res, next) {
-    console.log(req.query.li );
+    //console.log(req.query.li );
 
     switch(req.query.s) {
         case 'cmpy':
@@ -35,7 +35,7 @@ router.get('/', isLoggedIn, function(req, res, next) {
             var limit = DefaultLimit;
     }
 
-    console.log(limit)
+    //console.log(limit)
 
   //TODO: send data about contact list
     mongo.find({},'_id firstName lastName company', function(err, contacts){
@@ -52,7 +52,7 @@ router.get('/', isLoggedIn, function(req, res, next) {
             //console.log('%s %s %s', contact.firstName, contact.lastName, contact.company);
         })
 
-        res.render('index', { title: "My Contacts", contacts: tab , identities: ids});
+        res.render('main', { title: "My Contacts", contacts: tab , identities: ids, message: req.flash('mainMessage')});
 
     }).sort(sort).limit(limit);
 
@@ -76,12 +76,17 @@ router.get('/delete/:id', isLoggedIn, function(req, res, next){
     mongo.findByIdAndRemove(req.params.id, function(err, contact) {
         // We'll create a simple object to send back with a message and the id of the document that was removed
         // You can really do this however you want, though.
-        var response = {
-            message: "Contact successfully deleted",
-            id: contact._id
-        };
-        res.redirect('/main');
-        //res.status(200).send(response);
+        if(err){ console.log ('ERROR: DELETE CONTACT')}
+        else {
+            var response = {
+                message: "Contact successfully deleted",
+                id: contact._id
+            };
+            //res.redirect('/main');
+            res.status(200).send(response); //TODO: afficher un message disant qu'on a supprimer un utilisateur
+
+            //res.render('main', {title: "My Contacts", contacts: tab, identities: ids, message: 'contact deleted'});
+        }
     });
 });
 
