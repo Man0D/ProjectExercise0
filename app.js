@@ -1,21 +1,26 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var session = require('express-session');
-var mongoose = require('mongoose');
-const MongoStore = require('connect-mongo')(session);
+var express         = require('express'),
+    path            = require('path'),
+    favicon         = require('serve-favicon'),
+    logger          = require('morgan'),
+    cookieParser    = require('cookie-parser'),
+    bodyParser      = require('body-parser'),
+    session         = require('express-session'),
+    mongoose        = require('mongoose');
 
-var db = require('./model/db');
-var contacts = require('./model/contacts');
+var passport = require('passport');
+var flash    = require('connect-flash');
 
-var index = require('./routes/index');
-var main = require('./routes/main');
-var users = require('./routes/user');
-var contactpage = require('./routes/contact');
-var sign_in = require('./routes/signin');
+const MongoStore    = require('connect-mongo')(session);
+
+var db          = require('./model/db'),
+    contacts    = require('./model/contacts'),
+    user        = require('./model/user');
+
+var index       = require('./routes/index'),
+    main        = require('./routes/main'),
+    users       = require('./routes/user'),
+    contact_page = require('./routes/contact'),
+    sign_up     = require('./routes/signup');
 
 var app = express();
 
@@ -33,6 +38,14 @@ app.use(session({
         touchAfter: 1 * 60 * 60 // = 1 hour
     })
 }));
+
+//var configDB = require('./config/database.js');
+
+require('./config/passport')(passport);
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -52,8 +65,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/main', main);
 app.use('/user', users);
-app.use('/signin', sign_in);
-app.use('/contact', contactpage);
+app.use('/signup', sign_up);
+app.use('/contact', contact_page);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

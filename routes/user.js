@@ -20,6 +20,7 @@ router.get('/:id', function(req, res, next) {
             });
 
             res.render('users', {
+                title: 'IO Contacts | '+ d(contact.firstName) +' '+d(contact.lastName),
                 Id: req.params.id ,
                 fname: d(contact.firstName) ,
                 lname: d(contact.lastName),

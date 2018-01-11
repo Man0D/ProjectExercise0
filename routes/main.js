@@ -7,7 +7,7 @@ const   DefaultSort     = null,
         DefaultLimit    = 20;
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', isLoggedIn, function(req, res, next) {
     console.log(req.query.li );
 
     switch(req.query.s) {
@@ -59,11 +59,11 @@ router.get('/', function(req, res, next) {
 
 });
 
-router.get('/new', function(req, res, next){
+router.get('/new', isLoggedIn, function(req, res, next){
    res.render('new',{ title: "New Contact" });
 });
 
-router.post('/new', function(req, res, next){
+router.post('/new', isLoggedIn, function(req, res, next){
     var contact = new mongo(req.body);
     contact.save( function(err,createdObject){
         if(err) throw err;
@@ -72,7 +72,7 @@ router.post('/new', function(req, res, next){
     res.redirect('/main');
 });
 
-router.get('/delete/:id', function(req, res, next){
+router.get('/delete/:id', isLoggedIn, function(req, res, next){
     mongo.findByIdAndRemove(req.params.id, function(err, contact) {
         // We'll create a simple object to send back with a message and the id of the document that was removed
         // You can really do this however you want, though.
@@ -86,3 +86,14 @@ router.get('/delete/:id', function(req, res, next){
 });
 
 module.exports = router;
+
+// route middleware to make sure a user is logged in
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated())
+        return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/');
+}
