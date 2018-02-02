@@ -1,0 +1,49 @@
+extends layout
+
+
+block content
+    div(class="row align-items-center justify-content-between")
+        div(class="col-8 col-sm-6 col-lg-4 col-xl-3")
+            a(href="/" role="button")
+                img(src="/images/logo.png")
+
+        a(class="col-4 col-sm-3 col-lg-2 col-xl-2 " role="button" href="/signup")
+            button(type="button" class="btn btn-warning")
+                b SIGN UP
+
+
+    hr
+
+    div(class="row align-items-center justify-content-start")
+        div(class="col-10 col-sm-6 col-lg-4 col-xl-3")
+            h2 Log in
+
+    br
+    div( class="row justify-content-center" )
+        div(class="col-12 col-md-10 col-lg-6")
+            if(message.length > 0)
+                div(class="alert alert-danger")= message
+
+            form(method="post" enctype="application/json")
+                div( class="form-group row")
+                    label(class="col-6 col-md-4 col-lg-3") Username
+                    div( class="col-12 col-md-8 col-lg-8")
+                        input(class="form-control" type="text" name="username")
+
+                div( class="form-group row")
+                    label(class="col-6 col-md-4 col-lg-3") Password
+                    div( class="col-12 col-md-8 col-lg-8")
+                        input(class="form-control" type="password" name="password")
+
+                br
+                div(class="row justify-content-end")
+                    button(type="submit" class="col-12 btn btn-primary") Login
+
+    br
+    div( class="col-12 text-center" )
+        strong I don't have an account !
+        | &nbsp; Let me &nbsp;
+        a(href="/signup") Sign up
+
+    div( class="col-12 text-center" )
+        a(href="/") I forgot my password !

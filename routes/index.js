@@ -6,19 +6,23 @@ var passport = require('passport');
 
 
 router.get('/', function(req, res, next) {
-    res.render('homepage', { title: "IO-Contacts", message: req.flash('loginMessage') });
+    res.render('homepage', { title: "IO-Contacts" });
 });
 
-router.post('/', passport.authenticate('local-login', {
+router.post('/login', passport.authenticate('local-login', {
 
     successRedirect : '/main', // redirect to the secure profile section
-    failureRedirect : '/', // redirect back to the signup page if there is an error
+    failureRedirect : '/login', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
 }));
 
 router.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
+});
+
+router.get('/login',function(req, res){
+   res.render('login', {title : "Log In", message: req.flash('loginMessage')});
 });
 
 module.exports = router;
