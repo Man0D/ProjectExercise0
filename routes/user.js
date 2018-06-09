@@ -36,25 +36,29 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.post('/:id', function(req, res, next) {
-    console.log(req.body);
+    console.log("req body", req.body);
 
     mongo.findById( req.params.id , function(err, contact){
         if (err) throw err;
 
-        if(contact.firstName != req.body.firstName)
+        if(contact.firstName !== req.body.firstName)
             contact.firstName = req.body.firstName;
 
-        if(contact.lastName != req.body.lastName)
+        if(contact.lastName !== req.body.lastName)
             contact.lastName = req.body.lastName;
 
-        if(contact.birthDate != req.body.birthDate)
+        if(contact.birthDate !== req.body.birthDate)
             contact.birthDate = req.body.birthDate;
 
-        if(contact.company != req.body.company)
+        if(contact.company !== req.body.company)
             contact.company = req.body.company;
 
+        req.body.addresses.forEach(function(e,i){
+            contact.addresses[i] = req.body.addresses[i];
+        });
+
         req.body.emails.forEach(function(e,i){
-                contact.emails[i] = e;
+            contact.emails[i] = e;
         });
 
         contact.save( function(err,updatedContact){
