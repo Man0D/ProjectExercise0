@@ -7,7 +7,7 @@ window.onload = function(){
     document.getElementById("removeEmail").onclick = removeEmailField;
 
 
-}
+};
 
 
 actionEdit = function(){
@@ -20,7 +20,7 @@ actionEdit = function(){
     document.getElementById('addEmail').removeAttribute("disabled");
     document.getElementById('removeEmail').removeAttribute("disabled");
     document.getElementById('addAddress').removeAttribute("disabled");
-}
+};
 
 actionSave = function(){
 
@@ -29,13 +29,13 @@ actionSave = function(){
     for(var i = 0; i < formValues.length ; i++){
         var x = formValues.item(i);
 
-        if(x.name.search(/\[|\]/) != -1 ){
+        if(x.name.search(/\[|\]/) !== -1 ){
             var tab = x.name.replace(/]/g,'').split('[');
 
-            if(obj[tab[0]] == undefined)
-                obj[tab[0]] = new Array();
+            if(obj[tab[0]] === undefined)
+                obj[tab[0]] = [];
 
-            if(obj[tab[0]][tab[1]] == undefined)
+            if(obj[tab[0]][tab[1]] === undefined)
                 obj[tab[0]][tab[1]] = {};
             obj[tab[0]][tab[1]][tab[2]] = x.value;
 
@@ -44,7 +44,7 @@ actionSave = function(){
         }
     }
 
-    console.log(JSON.stringify(obj));
+    //console.log(JSON.stringify(obj));
 
     var str_json = JSON.stringify(obj);
 
@@ -56,7 +56,7 @@ actionSave = function(){
         }
     };
     request.send(str_json)
-}
+};
 
 addEmailField  = function(){
     compt++;
@@ -92,7 +92,7 @@ addEmailField  = function(){
     div1.appendChild(select);
 
     document.getElementById("emails").appendChild(div1);
-}
+};
 
 removeEmailField = function(){
     var t = document.getElementById("emails");
@@ -101,5 +101,5 @@ removeEmailField = function(){
         t.removeChild(t.lastChild);
     }
     compt--;
-}
+};
 //TODO: ajout de champ adresse, champ email => changer l'atttribut name
